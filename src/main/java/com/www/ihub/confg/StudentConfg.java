@@ -1,5 +1,7 @@
 package com.www.ihub.confg;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,10 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
 
 import com.www.ihub.service.StudentService;
 
@@ -61,4 +67,30 @@ public class StudentConfg
 		
 		return auth.getAuthenticationManager();
 	}
-}
+	  @Bean
+	    public CorsConfigurationSource corsConfigurationSource() {
+
+	        CorsConfiguration config = new CorsConfiguration();
+
+	        config.setAllowedOrigins(
+	            List.of("https://student-app-8m7i.onrender.com")
+	        );
+
+	        config.setAllowedMethods(
+	            List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
+	        );
+
+	        config.setAllowedHeaders(
+	            List.of("*")
+	        );
+
+	        config.setAllowCredentials(true);
+
+	        UrlBasedCorsConfigurationSource source =
+	                new UrlBasedCorsConfigurationSource();
+
+	        source.registerCorsConfiguration("/**", config);
+
+	        return source;
+	    }
+	}
