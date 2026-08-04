@@ -1,7 +1,5 @@
 package com.www.ihub.confg;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,17 +7,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import com.www.ihub.service.StudentService;
 
 @Configuration
-@EnableWebSecurity
 public class StudentConfg 
 {
 	
@@ -36,7 +29,6 @@ public class StudentConfg
 	public SecurityFilterChain chain(HttpSecurity security) throws Exception {
 
 	    security
-	    .cors(cors -> {})
 	        .csrf(csrf -> csrf
 	         .disable())
 	        .authorizeHttpRequests(auth -> auth
@@ -68,30 +60,4 @@ public class StudentConfg
 		
 		return auth.getAuthenticationManager();
 	}
-	 @Bean
-	    public CorsConfigurationSource corsConfigurationSource() {
-
-	        CorsConfiguration config = new CorsConfiguration();
-
-	        config.setAllowedOrigins(
-	            List.of("https://student-ohvy.onrender.com")
-	        );
-
-	        config.setAllowedMethods(
-	            List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
-	        );
-
-	        config.setAllowedHeaders(
-	            List.of("*")
-	        );
-
-	        UrlBasedCorsConfigurationSource source =
-	            new UrlBasedCorsConfigurationSource();
-
-	        source.registerCorsConfiguration("/**", config);
-
-	        return source;
-	    }
-
-
 }
