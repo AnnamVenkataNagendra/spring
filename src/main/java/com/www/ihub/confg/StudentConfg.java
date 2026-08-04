@@ -31,6 +31,7 @@ public class StudentConfg
 	    security
 	        .csrf(csrf -> csrf
 	         .disable())
+	        .cors(cord->{})
 	        .authorizeHttpRequests(auth -> auth
 	            .requestMatchers(
 	                "/stu/post",
