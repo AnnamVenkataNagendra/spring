@@ -1,0 +1,16 @@
+
+spring:
+  application:
+    name: student_details
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/login
+    password: sowmya
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+  main:
+    allow-circular-references: true
