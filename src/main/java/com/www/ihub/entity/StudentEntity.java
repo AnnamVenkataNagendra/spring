@@ -23,17 +23,6 @@ public class StudentEntity
 	public StudentEntity()
 	{}
 
-	
-
-	public StudentEntity(int stuId, String stuName, String stuPass) {
-		super();
-		this.stuId = stuId;
-		this.stuName = stuName;
-		this.stuPass = stuPass;
-	}
-
-
-
 	public void setStuId(int stuId) {
 		this.stuId = stuId;
 	}
