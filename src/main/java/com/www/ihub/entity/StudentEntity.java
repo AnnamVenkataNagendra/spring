@@ -13,7 +13,7 @@ public class StudentEntity
 {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int stuId;
 	
 	private String stuName;
@@ -23,9 +23,16 @@ public class StudentEntity
 	public StudentEntity()
 	{}
 
-	public int getStuId() {
-		return stuId;
+	
+
+	public StudentEntity(int stuId, String stuName, String stuPass) {
+		super();
+		this.stuId = stuId;
+		this.stuName = stuName;
+		this.stuPass = stuPass;
 	}
+
+
 
 	public void setStuId(int stuId) {
 		this.stuId = stuId;

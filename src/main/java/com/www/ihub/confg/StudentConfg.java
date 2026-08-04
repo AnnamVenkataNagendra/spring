@@ -27,17 +27,20 @@ public class StudentConfg
 	
 	@Bean
 	public SecurityFilterChain chain(HttpSecurity security) throws Exception {
-		
-		security.csrf(req-> req.disable());
-		
-		security.authorizeHttpRequests((req->{
-			
-			req.requestMatchers("/stu/post","/stu/fetch","/stu/login").permitAll().anyRequest().authenticated();
-		}));
-		return security.build();
-		
+
+	    security
+	        .csrf(csrf -> csrf
+	         .disable())
+	        .authorizeHttpRequests(auth -> auth
+	            .requestMatchers(
+	                "/stu/post",
+	                "/stu/fetch",
+	                "/stu/login"
+	            ).permitAll()
+	            .anyRequest().authenticated());
+
+	    return security.build();
 	}
-	
 	
 	@SuppressWarnings("deprecation")
 	@Bean
