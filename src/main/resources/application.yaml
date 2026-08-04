@@ -4,13 +4,13 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DB_URL:jdbc:mysql://localhost:3306/login}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:sowmya}
+    url: ${DB_URL:jdbc:mysql://student-db.c4j2guameg9j.us-east-1.rds.amazonaws.com:3306/login}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:adminroot}
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update 
     show-sql: true
     generate-ddl: true
 
