@@ -19,7 +19,7 @@ import com.www.ihub.token.StudentToken;
 
 @RestController
 @RequestMapping("/stu")
-@CrossOrigin(origins = "https://student-ohvy.onrender.com")
+@CrossOrigin(origins = "https://student-app-8m7i.onrender.com")
 public class StudentController 
 {
 	@Autowired
