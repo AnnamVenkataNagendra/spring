@@ -34,16 +34,15 @@ public class StudentConfg
 	@Bean
 	public SecurityFilterChain chain(HttpSecurity security) throws Exception {
 
-	    security
-	        .csrf(csrf -> csrf
-	         .disable())
-	        .cors(cord->{})
-	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers(
-	                "/stu/post",
-	                "/stu/fetch",
-	                "/stu/login"
-	            ).permitAll()
+		 security
+         .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+         .csrf(csrf -> csrf.disable())
+         .authorizeHttpRequests(auth -> auth
+             .requestMatchers(
+                 "/stu/login",
+                 "/stu/post",
+                 "/stu/fetch"
+             ).permitAll()
 	            .anyRequest().authenticated());
 
 	    return security.build();
